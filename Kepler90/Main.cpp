@@ -12,30 +12,31 @@ Page 134 - 25 per page
 #include "Kepler90.h"
 
 int main(int argc, char **argv) {
-	/*Inicia a GLUT para que recursos computacionais sejam disponivilizados para este programa*/
 	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 
-	/*Iniciar o buffer de memoria para armazenar a imagem GLUT DOUBLE*/
-	glutInitDisplayMode(GLUT_SINGLE);
-
-	/*Tamanho da janela principal*/
-	glutInitWindowSize(700, 700);
-
-	/*Coordenadas de tela inicial da janela do OpenGL*/
-	glutInitWindowPosition(350, 50);
-
-	/*Apresenta a janela na tela*/
+	/*Window setting*/
+	glutInitWindowSize(750, 750);
+	glutInitWindowPosition(350, 20);
 	glutCreateWindow("Emily - Kepler 90");
 
-	/*Funcao que inicia o processo de renderizacao*/
+	glutIdleFunc(animate);
+
+	/*Start rendering*/
 	glutDisplayFunc(drawScene);
 
-	/*Habilitar o teclado usando recursos da GLUT chama o metodo keyboard_special */
+	/*Window Reshape*/
+	glutReshapeFunc(windowReshapeFunc);
+
+	/*Enable keyboard and mouse*/
 	glutSpecialFunc(&keyboard_special);
 	glutKeyboardFunc(&keyboard);
 	glutMouseFunc(&mouse);
 
-	/*Coloca esse programa OpenGL em loop até fechamento da janela*/
+	VisAngle = 65;
+	/*Set window background color*/
+	glClearColor(0.0f, 0.05f, 0.1f, 1.0f);
+	/*Keep the OpenGL program running until the window is closed*/
 	glutMainLoop();
 
 	return 0;
