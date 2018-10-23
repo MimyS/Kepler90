@@ -33,7 +33,6 @@ int main(int argc, char **argv) {
 	glutKeyboardFunc(&keyboard);
 	glutMouseFunc(&mouse);
 
-	VisAngle = 65;
 	/*Set window background color*/
 	glClearColor(0.0f, 0.05f, 0.1f, 1.0f);
 	/*Keep the OpenGL program running until the window is closed*/

@@ -1,0 +1,46 @@
+#ifndef VIEWCLASS_HEADER
+#define VIEWCLASS_HEADER
+
+#include<GL/glut.h>
+#include<iostream>
+#include<utility>
+#include<vector>
+
+class ViewClass {
+	GLfloat cameraX;
+	GLfloat cameraY;
+	GLfloat cameraZ;
+	GLfloat centerX;
+	GLfloat centerY;
+	GLfloat centerZ;
+	GLfloat viewUpX;
+	GLfloat viewUpY;
+	GLfloat viewUpZ;
+	GLfloat visAngle;
+	GLfloat fAspect;
+
+public:
+
+	void ObserverPos();
+	void VisParamSpecify();
+	void windowReshape(GLsizei, GLsizei);
+	void MoveCenterX(int val);
+	void MoveCenterY(int val);
+	void MoveCenterZ(int val);
+	void MoveCameraX(int val);
+	void MoveCameraY(int val);
+	void MoveCameraZ(int val);
+	void MoveViewUpX(int val);
+	void MoveViewUpY(int val);
+	void MoveViewUpZ(int val);
+	void SetCameraPos(GLfloat, GLfloat, GLfloat);
+	void ResetViewUp();
+	void ResetCenter();
+	void ZoomIn();
+	void ZoomOut();
+
+	ViewClass();
+	~ViewClass();
+};
+
+#endif

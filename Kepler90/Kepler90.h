@@ -2,9 +2,12 @@
 #define KEPLER_HEADER
 
 #include "Kepler90Models.h"
+#include "ViewClass.h"
+#include "ControlClass.h"
 
 /**GLOBAL**/
-extern GLfloat VisAngle, fAspect;
+extern ViewClass viewC;
+extern ControlClass control;
 
 void keyboard(unsigned char key, int x, int y);
 

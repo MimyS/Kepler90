@@ -39,7 +39,7 @@ void Planet::draw() {
 	
 	glRotatef(translateDeg, 0.0f, 0.0f, 1.0f);
 
-	GLfloat temp = (OrbitalRadius * 149600000) / (2*7000.0);
+	GLfloat temp = (OrbitalRadius * 149600000) / (15*7000.0);
 	glTranslated(temp, 0, 0);
 
 	glRotatef(rotateDeg, 0.0f, 0.0f, 1.0f);
