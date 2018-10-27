@@ -1,6 +1,6 @@
 #include "ControlClass.h"
 
-void ControlClass::keyboard(unsigned char key, int x, int y, ViewClass & viewC) {
+void ControlClass::keyboard(unsigned char key, int x, int y, ViewClass & viewC, vector<Planet> & LstPlanet) {
 	switch (key) {
 	// ZOOM
 	case '+': // ZOOM IN
@@ -29,9 +29,14 @@ void ControlClass::keyboard(unsigned char key, int x, int y, ViewClass & viewC) 
 	// planet position
 	case 'p': 
 	case 'P':
-		viewC.ResetCenter();
-		viewC.ResetViewUp();
-		viewC.SetCameraPos(1, 1, 0); // planet coordinate
+		viewC.SetCameraPos(695508 / (3 * PLANET_SCALE), 0, 0); //Kepler 90 border
+		viewC.SetViewUpPos(0, 0, 1);
+		viewC.SetCenterPos(5000, 0, 0);
+		break;
+	// reset to first view
+	case 'r':
+	case 'R':
+		viewC.ResetAll();
 		break;
 
 	// numeric - ViewUp

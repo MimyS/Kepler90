@@ -12,7 +12,7 @@ ViewClass::ViewClass() {
 	viewUpX = 0;
 	viewUpY = 1;
 	viewUpZ = 0;
-	visAngle = 50;
+	visAngle = 80;
 	fAspect = 0;
 }
 
@@ -94,16 +94,41 @@ void ViewClass::SetCameraPos(GLfloat x, GLfloat y, GLfloat z) {
 	cameraZ = z;
 }
 
-void ViewClass::ResetViewUp() {
-	viewUpX = 0;
-	viewUpY = 1;
-	viewUpZ = 0;
+void ViewClass::SetCenterPos(GLfloat x, GLfloat y, GLfloat z) {
+	centerX = x;
+	centerY = y;
+	centerZ = z;
+}
+
+void ViewClass::SetViewUpPos(GLfloat x, GLfloat y, GLfloat z) {
+	viewUpX = x;
+	viewUpY = y;
+	viewUpZ = z;
 }
 
 void ViewClass::ResetCenter() {
 	centerX = 0;
 	centerY = 0;
 	centerZ = 0;
+}
+
+void ViewClass::ResetCamera() {
+	cameraX = 0;
+	cameraY = 0;
+	cameraZ = 0;
+}
+
+void ViewClass::ResetAll() {
+	cameraX = 0;
+	cameraY = 80;
+	cameraZ = 2000;
+	centerX = 0;
+	centerY = 0;
+	centerZ = 0;
+	viewUpX = 0;
+	viewUpY = 1;
+	viewUpZ = 0;
+	visAngle = 80;
 }
 
 void ViewClass::ZoomIn() {

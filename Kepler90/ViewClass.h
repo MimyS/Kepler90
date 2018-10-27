@@ -34,8 +34,11 @@ public:
 	void MoveViewUpY(int val);
 	void MoveViewUpZ(int val);
 	void SetCameraPos(GLfloat, GLfloat, GLfloat);
-	void ResetViewUp();
+	void SetCenterPos(GLfloat x, GLfloat y, GLfloat z);
+	void SetViewUpPos(GLfloat x, GLfloat y, GLfloat z);
 	void ResetCenter();
+	void ResetCamera();
+	void ResetAll();
 	void ZoomIn();
 	void ZoomOut();
 

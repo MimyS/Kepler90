@@ -10,10 +10,15 @@ ControlClass control;
 vector<Planet> LstPlanet = generatePlanets();
 
 void animate() {
-	theta = theta + 0.05f;
+	double time = Tick();
+	if (time < 0.01)
+		time = 0.01;
+
+	theta += time * 0.02f;
 	for (auto& p : LstPlanet) {
-		p.updateinfos();
+		p.updateinfos(time);
 	}
+
 	viewC.VisParamSpecify();
 	glutPostRedisplay();
 }
@@ -28,7 +33,7 @@ void drawScene() {
 	glPushMatrix();
 	glColor3f(235/255.0, 183/255.0, 0.0f);
 	glRotatef(theta, 0.0f, 0.0f, 1.0f);
-	glutWireSphere(695508/(3*7000.0), 20, 20);
+	glutWireSphere(695508/(PLANET_SCALE*3), 20, 20);
 	glPopMatrix();
 
 	for (auto& p : LstPlanet) {
@@ -39,7 +44,7 @@ void drawScene() {
 };
 
 void keyboard(unsigned char key, int x, int y) {
-	control.keyboard(key, x, y, viewC);
+	control.keyboard(key, x, y, viewC, LstPlanet);
 }
 
 void keyboard_special(int key, int x, int y) {

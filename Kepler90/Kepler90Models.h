@@ -5,6 +5,11 @@
 #include<iostream>
 #include<utility>
 #include<vector>
+#include <ctime>
+
+#define ORBIT_SCALE (15*7000.0)
+#define PLANET_SCALE (7000.0)
+#define TIME_SCALE 200
 
 using namespace std;
 
@@ -26,9 +31,11 @@ public:
 	string Type;
 	string Name;
 	void draw();
-	void updateinfos();
+	void updateinfos(double);
 private:
 };
+
+double Tick();
 
 vector<Planet> generatePlanets();
 
